@@ -335,3 +335,122 @@ h3 { font-size: 1.08rem; font-weight: 650; }
 @media (max-width: 375px) {
   .garage-hero h1 { font-size: clamp(1.9rem, 10vw, 2.4rem); }
 }
+
+.theme-r20 {
+  --garage-bg: #0e0e10;
+  --garage-ink: #f7f5f3;
+  --garage-muted: #cbc5c6;
+  --garage-line: #363237;
+  --garage-accent: #ff6978;
+  --r20-red: #c71932;
+  color-scheme: dark;
+}
+
+.theme-r20 .garage-brand {
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 1.75rem;
+  font-style: italic;
+  letter-spacing: .045em;
+}
+
+.theme-r20 .garage-hero {
+  display: grid;
+  align-items: center;
+  min-height: clamp(28rem, 55vw, 40rem);
+  border-bottom: 3px solid var(--r20-red);
+  background: #131113;
+}
+
+.theme-r20 .garage-hero:has(.garage-photo)::after {
+  background:
+    linear-gradient(112deg, transparent 74%, #f42b481f 74.15%, transparent 74.55%),
+    linear-gradient(90deg, #0b0b0def, #0b0b0dc9 37%, #0b0b0d25 76%);
+}
+
+.theme-r20 .garage-photo { object-position: 68% center; }
+.theme-r20 .garage-hero h1,
+.theme-r20 .garage-section h2,
+.theme-r20 .garage-contact-band h2,
+.theme-r20 .garage-service-list h3 {
+  font-family: Impact, "Arial Narrow", "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+}
+
+.theme-r20 .garage-hero h1 {
+  font-size: clamp(4.5rem, 12vw, 10rem);
+  font-style: italic;
+  line-height: .96;
+}
+
+.theme-r20 .garage-hero-contact { margin-top: 1.4rem; }
+.theme-r20 .garage-actions .garage-button,
+.theme-r20 .garage-contact-band .garage-button { border-radius: .25rem; }
+.theme-r20 .garage-actions .garage-button:not(.garage-button-outline) {
+  background: var(--r20-red);
+  border-color: var(--r20-red);
+  color: white;
+}
+.theme-r20 .garage-actions .garage-button-outline { border-color: #e3dadd; }
+
+.theme-r20 .garage-service-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem; }
+.theme-r20 .garage-service-list li {
+  position: relative;
+  isolation: isolate;
+  justify-content: end;
+  align-items: start;
+  min-height: 8rem;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-color: var(--garage-line);
+  border-radius: .4rem;
+  background: #181417;
+}
+
+.theme-r20 .garage-service-list li::before,
+.theme-r20 .garage-service-list li::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+}
+
+.theme-r20 .garage-service-list li::before {
+  background-image: var(--r20-service-art, none);
+  background-size: 300% 200%;
+  background-position: var(--r20-art-x, 0) var(--r20-art-y, 0);
+}
+
+.theme-r20 .garage-service-list li::after {
+  background:
+    linear-gradient(143deg, transparent 70%, #db1737 70.2%, #db1737 71%, transparent 71.2%),
+    linear-gradient(0deg, #09090bf5, #09090bbd 32%, transparent 72%);
+}
+
+.theme-r20 .garage-service-list li:nth-child(3n + 2) { --r20-art-x: 50%; }
+.theme-r20 .garage-service-list li:nth-child(3n) { --r20-art-x: 100%; }
+.theme-r20 .garage-service-list li:nth-child(n + 4) { --r20-art-y: 100%; }
+.theme-r20 .garage-service-list h3 { font-size: clamp(1.1rem, 2.25vw, 2.125rem); line-height: 1.04; }
+.theme-r20 .garage-price a { color: #ffd2d5; }
+.theme-r20 .garage-visit { background: #191619; }
+.theme-r20 .garage-contact-band { color: white; background: #af1430; }
+.theme-r20 .garage-contact-band .garage-button { border-color: #ffc0cb; }
+
+@media (max-width: 670px) {
+  .theme-r20 .garage-hero { min-height: 25rem; }
+  .theme-r20 .garage-hero:has(.garage-photo)::after {
+    background: linear-gradient(90deg, #09090bec, #09090bbd 55%, #09090b38);
+  }
+  .theme-r20 .garage-photo { object-position: 65% center; }
+  .theme-r20 .garage-service-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+  .theme-r20 .garage-service-list li { padding: .7rem; }
+  .theme-r20 .garage-service-list h3 { font-size: clamp(1rem, 4.2vw, 1.65rem); }
+}
+
+@media (max-width: 420px) {
+  .theme-r20 .garage-service-list { grid-template-columns: minmax(0, 1fr); }
+  .theme-r20 .garage-service-list li { aspect-ratio: 3 / 2; padding: .9rem; }
+  .theme-r20 .garage-service-list li::before { bottom: auto; aspect-ratio: 1; }
+  .theme-r20 .garage-service-list h3 { font-size: clamp(1.35rem, 6vw, 1.65rem); }
+}
